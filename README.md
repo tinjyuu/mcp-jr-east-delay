@@ -36,6 +36,32 @@ npx jr-east-delay
 
 Claude DesktopやMCP InspectorなどのMCPクライアントから「getDelays」ツールを呼び出すことで、JR東日本の遅延情報を取得できます。
 
+### MCPクライアント設定例
+
+Claude DesktopやMCP Inspector等のクライアントで本サーバーを利用する場合、設定ファイル（例: `claude_desktop_config.json`）に以下のように記述してください。
+
+#### 例1: `node` コマンドがパスに通っている場合
+
+```json
+"jr-east-delay": {
+  "command": "node",
+  "args": ["/Users/your-path/mcp-jr-east-delay/build/index.js"]
+}
+```
+
+#### 例2: `node` の絶対パスを指定する場合
+
+```json
+"jr-east-delay": {
+  "command": "/Users/your-username/.nodebrew/current/bin/node",
+  "args": ["/Users/your-path/mcp-jr-east-delay/build/index.js"]
+}
+```
+
+- `your-username` の部分はご自身の環境に合わせて変更してください。
+- `your-path` の部分はご自身の環境に合わせて変更してください。
+- `node` コマンドがパスに通っていない場合は絶対パスで指定してください。
+
 ---
 
 ### 開発用メモ
