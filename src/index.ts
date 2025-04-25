@@ -75,24 +75,15 @@ async function main() {
       const areas = (area ? [area] : Object.keys(AREA_URLS)) as Array<keyof typeof AREA_URLS>;
       const allResults: DelayInfo[] = [];
 
-      console.log(`[getDelays] Starting request for areas: ${areas.join(', ')}`);
-
       for (const a of areas) {
         try {
           const url = AREA_URLS[a];
-          console.log(`[getDelays] Fetching delays for area: ${a} from ${url}`);
           const res = await scrapeArea(url);
-          console.log(`[getDelays] Results for ${a}:`, JSON.stringify(res, null, 2));
           res.forEach((r) => allResults.push({ area: a, ...r }));
         } catch (err) {
-          console.error(`[getDelays] Error fetching ${a}:`, err);
           allResults.push({ area: a, line: "", status: "", category: "other", error: (err as Error).message });
         }
       }
-
-      console.log(`[getDelays] Total results: ${allResults.length}`);
-      console.log(`[getDelays] Has delay info:`, allResults.some(r => r.category === "delay"));
-      console.log(`[getDelays] Full results:`, JSON.stringify(allResults, null, 2));
 
       const text = allResults.length > 0
         ? allResults
@@ -101,8 +92,6 @@ async function main() {
             )
             .join("\n")
         : "No delays found.";
-
-      console.log(`[getDelays] Final response text:`, text.substring(0, 100) + (text.length > 100 ? '...' : ''));
 
       return {
         content: [
