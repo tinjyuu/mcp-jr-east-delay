@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc && chmod 755 build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "cheerio": "^1.0.0-rc.12",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  },
+  "bin": {
+    "jr-east-delay": "./build/index.js"
+  }
+}
