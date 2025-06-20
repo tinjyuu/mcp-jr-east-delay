@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/tinjyuu-mcp-jr-east-delay-badge.png)](https://mseep.ai/app/tinjyuu-mcp-jr-east-delay)
+
 # JR東日本 遅延情報 MCPサーバー
 
 ## セットアップ
